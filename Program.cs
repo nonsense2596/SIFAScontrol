@@ -26,7 +26,7 @@ namespace SIFAScontrol
             //InterceptKeys.InitializeComponent();
 
 
-            //
+            
 
             Thread t = new Thread(InitInterceptKeys);
             t.Start();
