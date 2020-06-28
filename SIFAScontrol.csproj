@@ -54,6 +54,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="src\AreaSelectForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="src\AreaSelectForm.Designer.cs">
+      <DependentUpon>AreaSelectForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="src\InterceptKeys.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -74,6 +80,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="src\AreaSelectForm.resx">
+      <DependentUpon>AreaSelectForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="src\MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>

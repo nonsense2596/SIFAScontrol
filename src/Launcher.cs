@@ -26,7 +26,7 @@ namespace SIFAScontrol.src
 
             //Application.Idle += delegate { Thread t = new Thread(Program.InitInterceptKeys); t.Start(); };
 
-            Application.Run(new MultiFormContext(new MainForm()));
+            Application.Run(new MultiFormContext(new MainForm(), new AreaSelectForm()));
             
         }
 
