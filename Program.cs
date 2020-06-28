@@ -5,28 +5,36 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using XInputDotNetPure;
-
 using System.Runtime.InteropServices;
 using System.Drawing;
+using SIFAScontrol.src;
 
 namespace SIFAScontrol
 {
     static class Program
     {
-
+        
         /// <summary>
         /// The main entry point for the application.
         /// </summary>
         [STAThread]
         static void Main()
         {
-            Application.EnableVisualStyles();
-            Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1());
-            //InterceptKeys.InitializeComponent();
+            //Application.EnableVisualStyles();
+            //Application.SetCompatibleTextRenderingDefault(false);
 
+
+
+            Launcher launcher = Launcher.Instance;  // ez felel minden mas szolgaltatas elinditasaert
 
             
+
+
+
+
+
+
+
 
             Thread t = new Thread(InitInterceptKeys);
             t.Start();
@@ -35,9 +43,9 @@ namespace SIFAScontrol
             var stdIn = Console.OpenStandardInput();
             byte[] bytes = new byte[100];
             int outputLength;
-            // while (true)
-            //outputLength = stdIn.Read(bytes, 0, 100);
-            //Console.WriteLine(Console.ReadKey() + "console " + DateTime.Now.Millisecond);
+
+
+
 
             string screenWidth = Screen.PrimaryScreen.Bounds.Width.ToString();
 
@@ -53,14 +61,25 @@ namespace SIFAScontrol
                 Console.WriteLine("IsConnected {0} Packet #{1}", state.IsConnected, state.PacketNumber);
                 Console.WriteLine("\tTriggers {0} {1}", state.Triggers.Left, state.Triggers.Right);
                 Console.WriteLine("move stick {0} ", state.ThumbSticks.Left.X);
-                Thread.Sleep(2000);
+                Thread.Sleep(100);
             }
-            //GamePadState state = GamePad.GetState(PlayerIndex.One);
 
         }
-        static void InitInterceptKeys()
+        public static void InitInterceptKeys()
         {
             InterceptKeys.InitializeComponent();
+        }
+        public static void Loller()
+        {
+            while (true)
+            {
+                /*GamePadState state = GamePad.GetState(PlayerIndex.One);
+                Console.WriteLine("IsConnected {0} Packet #{1}", state.IsConnected, state.PacketNumber);
+                Console.WriteLine("\tTriggers {0} {1}", state.Triggers.Left, state.Triggers.Right);
+                Console.WriteLine("move stick {0} ", state.ThumbSticks.Left.X);*/
+                //Thread.Sleep(100);
+                //Console.WriteLine(DateTime.Now.Millisecond);
+            }
         }
     }
 }

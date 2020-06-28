@@ -61,6 +61,7 @@ class InterceptKeys
     {
         _hookID = SetHook(_proc);
         Application.Run();
+        
         UnhookWindowsHookEx(_hookID);
     }
 
@@ -81,11 +82,16 @@ class InterceptKeys
         if (nCode >= 0 && wParam == (IntPtr)WM_KEYDOWN)
         {
             int vkCode = Marshal.ReadInt32(lParam);
-            Console.WriteLine((Keys)vkCode + " " + DateTime.Now.Millisecond);
 
-            DoMouseClick();
+
+            long milliseconds = DateTime.Now.Ticks / TimeSpan.TicksPerMillisecond;
+            Console.WriteLine((Keys)vkCode + " " + milliseconds);
+
+            /*DoMouseClick();
             Thread.Sleep(2000);
-            DoMouseClick2();
+            DoMouseClick2();*/
+
+
             //for (int i = 0; i < 60; i++)
             //{
             //    Cursor.Position = new Point(Cursor.Position.X - 1, Cursor.Position.Y);
