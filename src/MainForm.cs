@@ -25,5 +25,20 @@ namespace SIFAScontrol.src
             t.Start();
             //Console.WriteLine("lololol");
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            string filePath = "";
+            configPicker.InitialDirectory = "c:\\";
+            configPicker.Filter = "txt files (*.txt)|*.txt|All files (*.*)|*.*";
+            configPicker.FilterIndex = 2;
+            configPicker.RestoreDirectory = true;
+            if (configPicker.ShowDialog() == DialogResult.OK)
+            {
+                //Get the path of specified file
+                filePath = configPicker.FileName;
+            }
+            Console.WriteLine(filePath);
+        }
     }
 }

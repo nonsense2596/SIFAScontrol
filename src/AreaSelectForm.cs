@@ -17,6 +17,9 @@ namespace SIFAScontrol.src
 
         public AreaSelectForm()
         {
+
+
+
             InitializeComponent();
             WindowState = FormWindowState.Minimized;
             Rectangle bounds = Screen.PrimaryScreen.Bounds;
