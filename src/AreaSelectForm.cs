@@ -112,5 +112,10 @@ namespace SIFAScontrol.src
             }
             pictureBox1.Invoke(new Action(() => pictureBox1.Invalidate()));
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+        }
     }
 }

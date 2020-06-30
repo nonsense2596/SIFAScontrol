@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
@@ -13,6 +14,8 @@ namespace SIFAScontrol.src
 {
     public partial class MainForm : Form
     {
+        public string ConfigFilePath { get; set; }
+
         public MainForm()
         {
             InitializeComponent();
@@ -23,22 +26,22 @@ namespace SIFAScontrol.src
         {
             Thread t = new Thread(InterceptKeys.InitializeComponent);
             t.Start();
+
             //Console.WriteLine("lololol");
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            string filePath = "";
-            configPicker.InitialDirectory = "c:\\";
-            configPicker.Filter = "txt files (*.txt)|*.txt|All files (*.*)|*.*";
-            configPicker.FilterIndex = 2;
-            configPicker.RestoreDirectory = true;
+            ConfigFilePath = "";
+            configPicker.InitialDirectory = "C:\\";
+            configPicker.Filter = "SIFConfig files (*.sifc)|*.sifc";
+            configPicker.Multiselect = false;
             if (configPicker.ShowDialog() == DialogResult.OK)
             {
-                //Get the path of specified file
-                filePath = configPicker.FileName;
+                ConfigFilePath = configPicker.FileName;
             }
-            Console.WriteLine(filePath);
+            configPicker.Dispose();
+            Console.WriteLine(ConfigFilePath);
         }
     }
 }
