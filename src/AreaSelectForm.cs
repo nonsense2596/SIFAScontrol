@@ -15,8 +15,7 @@ namespace SIFAScontrol.src
     {
         public string RetTeszt { get; set; }
 
-        static int counter = 0;
-
+        Image bgimage;
         public AreaSelectForm()
         {
 
@@ -25,32 +24,24 @@ namespace SIFAScontrol.src
             InitializeComponent();
             WindowState = FormWindowState.Minimized;
             Rectangle bounds = Screen.PrimaryScreen.Bounds;
-            Bitmap b;
             using (Bitmap bitmap = new Bitmap(bounds.Width, bounds.Height))
             using (Graphics g = Graphics.FromImage(bitmap))
             {
                 g.CopyFromScreen(new Point(bounds.Left, bounds.Top), Point.Empty, bounds.Size);
 
-                
-                bitmap.Save("D://test" + counter + ".png", ImageFormat.Png);
 
-
-                Image myimage = new Bitmap(@"D:\test" + counter + ".png");
-
-                //BackgroundImage = myimage;
-                this.pictureBox1.Image = myimage;
+                bgimage = new Bitmap(bitmap);
+                this.pictureBox1.Image = bgimage;
                 WindowState = FormWindowState.Maximized;
+
             }
             Paint += new PaintEventHandler(AreaSelectForm_Paint);
 
             pictureBox1.Paint += new PaintEventHandler(pictureBox1_Paint);
 
             RetTeszt = "keksz";
-            mainimage = new Bitmap(@"D:\test" + counter + ".png");
-            counter++;
         }
 
-        Image mainimage;// = new Bitmap(@"D:\test.png");
 
         List<Rectangle> l = new List<Rectangle>();
 
@@ -77,7 +68,6 @@ namespace SIFAScontrol.src
         {
             s_x = e.X;
             s_y = e.Y;
-            //l.Add(new Rectangle(e.X, e.Y, 50, 50));
             l.Add(new Rectangle(0, 0, 0, 0));
             drawing = true;
             Invalidate();
@@ -125,7 +115,7 @@ namespace SIFAScontrol.src
 
         ~AreaSelectForm()
         {
-
+            bgimage.Dispose();
         }
     }
 }
