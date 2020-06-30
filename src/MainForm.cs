@@ -43,5 +43,18 @@ namespace SIFAScontrol.src
             configPicker.Dispose();
             Console.WriteLine(ConfigFilePath);
         }
+
+
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            AreaSelectForm asf = new AreaSelectForm();
+            asf.Show();
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

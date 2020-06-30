@@ -15,6 +15,8 @@ namespace SIFAScontrol.src
     {
         public string RetTeszt { get; set; }
 
+        static int counter = 0;
+
         public AreaSelectForm()
         {
 
@@ -29,10 +31,11 @@ namespace SIFAScontrol.src
             {
                 g.CopyFromScreen(new Point(bounds.Left, bounds.Top), Point.Empty, bounds.Size);
 
-                bitmap.Save("D://test.png", ImageFormat.Png);
+                
+                bitmap.Save("D://test" + counter + ".png", ImageFormat.Png);
 
 
-                Image myimage = new Bitmap(@"D:\test.png");
+                Image myimage = new Bitmap(@"D:\test" + counter + ".png");
 
                 //BackgroundImage = myimage;
                 this.pictureBox1.Image = myimage;
@@ -43,9 +46,11 @@ namespace SIFAScontrol.src
             pictureBox1.Paint += new PaintEventHandler(pictureBox1_Paint);
 
             RetTeszt = "keksz";
+            mainimage = new Bitmap(@"D:\test" + counter + ".png");
+            counter++;
         }
 
-        Image mainimage = new Bitmap(@"D:\test.jpg");
+        Image mainimage;// = new Bitmap(@"D:\test.png");
 
         List<Rectangle> l = new List<Rectangle>();
 
@@ -116,6 +121,11 @@ namespace SIFAScontrol.src
         private void button1_Click(object sender, EventArgs e)
         {
             this.Hide();
+        }
+
+        ~AreaSelectForm()
+        {
+
         }
     }
 }
