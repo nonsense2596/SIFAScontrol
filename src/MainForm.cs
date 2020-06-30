@@ -48,8 +48,12 @@ namespace SIFAScontrol.src
 
         private void button2_Click(object sender, EventArgs e)
         {
-            AreaSelectForm asf = new AreaSelectForm();
+            AreaSelectFormTooltip asft = new AreaSelectFormTooltip();
+            AreaSelectForm asf = new AreaSelectForm(asft);
             asf.Show();
+            asft.Show();
+
+           
         }
 
         private void button3_Click(object sender, EventArgs e)

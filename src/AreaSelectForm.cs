@@ -15,14 +15,16 @@ namespace SIFAScontrol.src
     {
         public string RetTeszt { get; set; }
 
+        AreaSelectFormTooltip asft;
         Image bgimage;
-        public AreaSelectForm()
+        public AreaSelectForm(AreaSelectFormTooltip asft)
         {
-
+            this.asft = asft;
 
 
             InitializeComponent();
             WindowState = FormWindowState.Minimized;
+            asft.WindowState = FormWindowState.Minimized;
             Rectangle bounds = Screen.PrimaryScreen.Bounds;
             using (Bitmap bitmap = new Bitmap(bounds.Width, bounds.Height))
             using (Graphics g = Graphics.FromImage(bitmap))
@@ -33,7 +35,7 @@ namespace SIFAScontrol.src
                 bgimage = new Bitmap(bitmap);
                 this.pictureBox1.Image = bgimage;
                 WindowState = FormWindowState.Maximized;
-
+                asft.WindowState = FormWindowState.Normal;
             }
             Paint += new PaintEventHandler(AreaSelectForm_Paint);
 
@@ -49,7 +51,6 @@ namespace SIFAScontrol.src
         {
             foreach (var item in l)
             {
-                //e.Graphics.DrawRectangle(Pens.Red, item);
                 e.Graphics.DrawRectangle(new Pen(Color.Red, 5), item);
             }
 
@@ -102,7 +103,6 @@ namespace SIFAScontrol.src
         {
             foreach (var item in l)
             {
-                //e.Graphics.DrawRectangle(Pens.Red, item);
                 e.Graphics.DrawRectangle(new Pen(Color.Red, 5), item);
             }
             pictureBox1.Invoke(new Action(() => pictureBox1.Invalidate()));

@@ -54,11 +54,18 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="data\GestureSurface.cs" />
     <Compile Include="src\AreaSelectForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="src\AreaSelectForm.Designer.cs">
       <DependentUpon>AreaSelectForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="src\AreaSelectFormTooltip.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="src\AreaSelectFormTooltip.Designer.cs">
+      <DependentUpon>AreaSelectFormTooltip.cs</DependentUpon>
     </Compile>
     <Compile Include="src\InterceptKeys.cs" />
     <Compile Include="Program.cs" />
