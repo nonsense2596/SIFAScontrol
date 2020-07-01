@@ -85,6 +85,13 @@ namespace SIFAScontrol.src
             mousedowncounter++;
         }
 
+        // TODO make this more intuitive and less repetitive
+        int x_min;
+        int y_min;
+        int x_max;
+        int y_max;
+        int width;
+        int height;
         private void pictureBox1_MouseMove(object sender, MouseEventArgs e)
         {
             if (drawing)
@@ -92,10 +99,10 @@ namespace SIFAScontrol.src
                 int f_x = e.X;
                 int f_y = e.Y;
 
-                int x_min = Math.Min(s_x, f_x);
-                int y_min = Math.Min(s_y, f_y);
-                int width = Math.Abs(s_x - f_x);
-                int height = Math.Abs(s_y - f_y);
+                x_min = Math.Min(s_x, f_x); x_max = Math.Max(s_x, f_x);
+                y_min = Math.Min(s_y, f_y); y_max = Math.Max(s_y, f_y);
+                width = Math.Abs(s_x - f_x);
+                height = Math.Abs(s_y - f_y);
 
                 l.RemoveAt(l.Count - 1);
                 l.Add(new Rectangle(x_min, y_min, width, height));
@@ -114,6 +121,14 @@ namespace SIFAScontrol.src
             else
             {
                 asft.text.Text = actionlist[mousedowncounter].Name;
+                actionlist[mousedowncounter].Area.X_min = x_min;
+                actionlist[mousedowncounter].Area.X_max = x_max;
+                actionlist[mousedowncounter].Area.Y_min = y_min;
+                actionlist[mousedowncounter].Area.Y_max = y_max;
+                Console.WriteLine(actionlist[mousedowncounter].Area.height);
+                Console.WriteLine(actionlist[mousedowncounter].Area.width);
+                Console.WriteLine(height);
+                Console.WriteLine(width);
             }
 
 

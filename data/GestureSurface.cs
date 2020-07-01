@@ -8,6 +8,7 @@ namespace SIFAScontrol
 {
     public class GestureSurface
     {
+        public GestureSurface() { }
         public int X_max { get; set; }
         public int Y_max { get; set; }
         public int X_min { get; set; }

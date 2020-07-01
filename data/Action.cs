@@ -15,11 +15,11 @@ namespace SIFAScontrol.data
             Tooltip = tooltip;
             Area = area;
         }
-        public Action(string name, string tooltip)
+        /*public Action(string name, string tooltip)
         {
             Name = name;
             Tooltip = tooltip;
-        }
+        }*/
 
         public string Name { get; set; }
         public string Tooltip { get; set; }

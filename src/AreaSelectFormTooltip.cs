@@ -13,6 +13,8 @@ namespace SIFAScontrol.src
     public partial class AreaSelectFormTooltip : Form
     {
         public Label text { get; set; }
+
+
         public AreaSelectFormTooltip()
         {
             InitializeComponent();
@@ -20,17 +22,25 @@ namespace SIFAScontrol.src
             //FormBorderStyle = FormBorderStyle
             Location = new Point(0, 0);
             StartPosition = FormStartPosition.Manual;
-
+            //FormBorderStyle = FormBorderStyle.None;
+            ControlBox = false;
 
             text = new Label();
             text.Location = new Point(0, 0);
             text.Size = new Size(this.Width, this.Height);
             text.ForeColor = Color.Black;
             text.Font = new Font("Georgia", 16);
-            text.Text = "lolo l asdasd sajdasjd adjas 1keqwk dijwq wj qwjd iwqdiq idjq  q pd qijhd qiqj qdjqi qődqkdijdfhe pfjweifejfe eif ";
+            Size = new Size(300, 100);
+            //text.Text = "lolo l asdasd sajdasjd adjas 1keqwk dijwq wj qwjd iwqdiq idjq  q pd qijhd qiqj qdjqi qődqkdijdfhe pfjweifejfe eif ";
             text.Show();
 
+
             Controls.Add(text);
+        }
+
+        private void AreaSelectFormTooltip_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -37,6 +37,7 @@
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Name = "AreaSelectFormTooltip";
             this.Text = "AreaSelectFormTooltip";
+            this.Load += new System.EventHandler(this.AreaSelectFormTooltip_Load);
             this.ResumeLayout(false);
 
         }
