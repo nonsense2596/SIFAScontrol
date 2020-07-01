@@ -1,10 +1,12 @@
-﻿using System;
+﻿using SIFAScontrol.data;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Drawing.Imaging;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -17,10 +19,11 @@ namespace SIFAScontrol.src
 
         AreaSelectFormTooltip asft;
         Image bgimage;
-        public AreaSelectForm(AreaSelectFormTooltip asft)
+        Actions actionlist;
+        public AreaSelectForm(AreaSelectFormTooltip asft, Actions actionlist)
         {
             this.asft = asft;
-
+            this.actionlist = actionlist;
 
             InitializeComponent();
             WindowState = FormWindowState.Minimized;
@@ -58,12 +61,16 @@ namespace SIFAScontrol.src
 
         private void AreaSelectForm_Load(object sender, EventArgs e)
         {
-           // asft.text.Text = "loller";
+            // asft.text.Text = "loller";
+            mousedowncounter = 0;
+            asft.text.Text = actionlist[0].Name;
         }
 
         int s_x;
         int s_y;
         bool drawing = false;
+
+        int mousedowncounter = 0;
 
         private void pictureBox1_MouseDown(object sender, MouseEventArgs e)
         {
@@ -73,7 +80,9 @@ namespace SIFAScontrol.src
             drawing = true;
             Invalidate();
 
-            asft.text.Text = s_x.ToString();
+            //asft.text.Text = s_x.ToString();
+
+            mousedowncounter++;
         }
 
         private void pictureBox1_MouseMove(object sender, MouseEventArgs e)
@@ -96,7 +105,18 @@ namespace SIFAScontrol.src
 
         private void pictureBox1_MouseUp(object sender, MouseEventArgs e)
         {
+            
             drawing = false;
+            if (mousedowncounter > 5)
+            {
+                this.Close();
+            }
+            else
+            {
+                asft.text.Text = actionlist[mousedowncounter].Name;
+            }
+
+
         }
 
 
@@ -107,7 +127,7 @@ namespace SIFAScontrol.src
             {
                 e.Graphics.DrawRectangle(new Pen(Color.Red, 5), item);
             }
-            pictureBox1.Invoke(new Action(() => pictureBox1.Invalidate()));
+            pictureBox1.Invoke(new System.Action(() => pictureBox1.Invalidate()));
         }
 
         private void button1_Click(object sender, EventArgs e)

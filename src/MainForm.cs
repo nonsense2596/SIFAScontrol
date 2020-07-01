@@ -17,13 +17,13 @@ namespace SIFAScontrol.src
     {
         public string ConfigFilePath { get; set; }
 
-        Actions ActionList;
+        Actions actionlist;
         GamePlayer gameplayer;
 
         public MainForm()
         {
             InitializeComponent();
-            
+            actionlist = new Actions();
         }
 
         private void MainForm_Load(object sender, EventArgs e)
@@ -53,7 +53,7 @@ namespace SIFAScontrol.src
         private void button2_Click(object sender, EventArgs e)
         {
             AreaSelectFormTooltip asft = new AreaSelectFormTooltip();
-            AreaSelectForm asf = new AreaSelectForm(asft);
+            AreaSelectForm asf = new AreaSelectForm(asft, actionlist);
             asf.Show();
             asft.Show();
 
@@ -62,7 +62,7 @@ namespace SIFAScontrol.src
 
         private void button3_Click(object sender, EventArgs e)
         {
-            gameplayer = new GamePlayer(ActionList);
+            gameplayer = new GamePlayer(actionlist);
             WindowState = FormWindowState.Minimized;
         }
     }

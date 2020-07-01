@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace SIFAScontrol
 {
-    class GestureSurface
+    public class GestureSurface
     {
         public int X_max { get; set; }
         public int Y_max { get; set; }

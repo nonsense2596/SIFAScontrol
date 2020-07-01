@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace SIFAScontrol.data
 {
-    class Action
+    public class Action
     {
 
         public Action(string name, string tooltip, GestureSurface area)
@@ -14,6 +14,11 @@ namespace SIFAScontrol.data
             Name = name;
             Tooltip = tooltip;
             Area = area;
+        }
+        public Action(string name, string tooltip)
+        {
+            Name = name;
+            Tooltip = tooltip;
         }
 
         public string Name { get; set; }
