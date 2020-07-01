@@ -58,7 +58,7 @@ namespace SIFAScontrol.src
 
         private void AreaSelectForm_Load(object sender, EventArgs e)
         {
-
+           // asft.text.Text = "loller";
         }
 
         int s_x;
@@ -72,6 +72,8 @@ namespace SIFAScontrol.src
             l.Add(new Rectangle(0, 0, 0, 0));
             drawing = true;
             Invalidate();
+
+            asft.text.Text = s_x.ToString();
         }
 
         private void pictureBox1_MouseMove(object sender, MouseEventArgs e)
@@ -110,12 +112,18 @@ namespace SIFAScontrol.src
 
         private void button1_Click(object sender, EventArgs e)
         {
-            this.Hide();
+            this.Close();
         }
 
         ~AreaSelectForm()
         {
             bgimage.Dispose();
+        }
+        override protected void OnFormClosed(System.Windows.Forms.FormClosedEventArgs e)
+        {
+            asft.Close();
+            base.OnFormClosed(e);
+
         }
     }
 }

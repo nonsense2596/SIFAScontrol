@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SIFAScontrol.data;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,6 +16,9 @@ namespace SIFAScontrol.src
     public partial class MainForm : Form
     {
         public string ConfigFilePath { get; set; }
+
+        Actions ActionList;
+        GamePlayer gameplayer;
 
         public MainForm()
         {
@@ -58,7 +62,8 @@ namespace SIFAScontrol.src
 
         private void button3_Click(object sender, EventArgs e)
         {
-
+            gameplayer = new GamePlayer(ActionList);
+            WindowState = FormWindowState.Minimized;
         }
     }
 }

@@ -54,6 +54,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="data\Action.cs" />
+    <Compile Include="data\Actions.cs" />
     <Compile Include="data\GestureSurface.cs" />
     <Compile Include="src\AreaSelectForm.cs">
       <SubType>Form</SubType>
@@ -67,6 +69,7 @@
     <Compile Include="src\AreaSelectFormTooltip.Designer.cs">
       <DependentUpon>AreaSelectFormTooltip.cs</DependentUpon>
     </Compile>
+    <Compile Include="src\GamePlayer.cs" />
     <Compile Include="src\InterceptKeys.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -89,6 +92,9 @@
     </Compile>
     <EmbeddedResource Include="src\AreaSelectForm.resx">
       <DependentUpon>AreaSelectForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="src\AreaSelectFormTooltip.resx">
+      <DependentUpon>AreaSelectFormTooltip.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="src\MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
