@@ -666,6 +666,20 @@ namespace SIFAScontrol.Abstraction
             return output;
         }
 
+        public string StickToString()
+        {
+            string output = "";
+            if(this.LeftThumbX == 0.0f && this.LeftThumbY == 0.0f)
+            {
+                return this.RightThumbX + ";" + this.RightThumbY;
+            }
+            if(this.RightThumbX == 0.0f && this.RightThumbY == 0.0f)
+            {
+                return this.LeftThumbX + ";" + this.LeftThumbY;
+            }
+            return output;
+        }
+
         #endregion
 
         #region Events

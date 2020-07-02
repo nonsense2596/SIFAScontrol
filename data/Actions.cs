@@ -23,12 +23,12 @@ namespace SIFAScontrol.data
         }
 
         public Actions() {
-            PreviousFormation = new Action("Previous Formation", "Select the Previous Formation Area", new GestureSurface());
-            NextFormation = new Action("Next Formation", "Select the Next Formation Area", new GestureSurface());
-            Pause = new Action("Pause", "Select the Pause Area", new GestureSurface());
-            LeftTouch = new Action("Left Touch", "Select the Left Touch Area", new GestureSurface());
-            RightTouch = new Action("Right Touch", "Select the Right Touch Area", new GestureSurface());
-            GroupSkill = new Action("Group Skill", "Select the Group Skill Area", new GestureSurface());
+            PreviousFormation =     new Action(Abstraction.KeyEventArgs.KeyCode.L,"Previous Formation", "Select the Previous Formation Area", new GestureSurface());
+            NextFormation =         new Action(Abstraction.KeyEventArgs.KeyCode.R, "Next Formation", "Select the Next Formation Area", new GestureSurface());
+            Pause =                 new Action(Abstraction.KeyEventArgs.KeyCode.Start, "Pause", "Select the Pause Area", new GestureSurface());
+            LeftTouch =             new Action(Abstraction.KeyEventArgs.KeyCode.DPadLeft, "Left Touch", "Select the Left Touch Area", new GestureSurface());
+            RightTouch =            new Action(Abstraction.KeyEventArgs.KeyCode.DPadRight, "Right Touch", "Select the Right Touch Area", new GestureSurface());
+            GroupSkill =            new Action(Abstraction.KeyEventArgs.KeyCode.A, "Group Skill", "Select the Group Skill Area", new GestureSurface());
             ial[0] = PreviousFormation;
             ial[1] = NextFormation;
             ial[2] = Pause;

@@ -19,11 +19,11 @@ namespace SIFAScontrol.src
 
         AreaSelectFormTooltip asft;
         Image bgimage;
-        Actions actionlist;
-        public AreaSelectForm(AreaSelectFormTooltip asft, Actions actionlist)
+        Actions actions;
+        public AreaSelectForm(AreaSelectFormTooltip asft, Actions actions)
         {
             this.asft = asft;
-            this.actionlist = actionlist;
+            this.actions = actions;
 
             InitializeComponent();
             WindowState = FormWindowState.Minimized;
@@ -63,7 +63,7 @@ namespace SIFAScontrol.src
         {
             // asft.text.Text = "loller";
             mousedowncounter = 0;
-            asft.text.Text = actionlist[0].Name;
+            asft.text.Text = actions[0].Name;
         }
 
         int s_x;
@@ -120,13 +120,13 @@ namespace SIFAScontrol.src
             }
             else
             {
-                asft.text.Text = actionlist[mousedowncounter].Name;
-                actionlist[mousedowncounter].Area.X_min = x_min;
-                actionlist[mousedowncounter].Area.X_max = x_max;
-                actionlist[mousedowncounter].Area.Y_min = y_min;
-                actionlist[mousedowncounter].Area.Y_max = y_max;
-                Console.WriteLine(actionlist[mousedowncounter].Area.height);
-                Console.WriteLine(actionlist[mousedowncounter].Area.width);
+                asft.text.Text = actions[mousedowncounter].Name;
+                actions[mousedowncounter].Area.X_min = x_min;
+                actions[mousedowncounter].Area.X_max = x_max;
+                actions[mousedowncounter].Area.Y_min = y_min;
+                actions[mousedowncounter].Area.Y_max = y_max;
+                Console.WriteLine(actions[mousedowncounter].Area.height);
+                Console.WriteLine(actions[mousedowncounter].Area.width);
                 Console.WriteLine(height);
                 Console.WriteLine(width);
             }
