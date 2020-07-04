@@ -28,26 +28,28 @@ namespace SIFAScontrol.src
 
         public void DoWork()
         {
-            while (true)
-            {
-                if (reporterState.Poll())
-                {
-                    if(reporterState.LastActiveState.Buttons.A == XInputDotNetPure.ButtonState.Pressed)
-                    {
-                        //Console.WriteLine("faszomA");
-                        if (areleased)
-                        {
-                            Console.WriteLine("AaAaAaA");
-                            areleased = false;
-                        }
 
-                    }
-                    if(reporterState.LastActiveState.Buttons.A == XInputDotNetPure.ButtonState.Released)
-                    {
-                        areleased = true;
-                    }
-                }
-            }
+
+            //while (true)
+            //{
+            //    if (reporterState.Poll())
+            //    {
+            //        if(reporterState.LastActiveState.Buttons.A == XInputDotNetPure.ButtonState.Pressed)
+            //        {
+            //            //Console.WriteLine("faszomA");
+            //            if (areleased)
+            //            {
+            //                Console.WriteLine("AaAaAaA");
+            //                areleased = false;
+            //            }
+
+            //        }
+            //        if(reporterState.LastActiveState.Buttons.A == XInputDotNetPure.ButtonState.Released)
+            //        {
+            //            areleased = true;
+            //        }
+            //    }
+            //}
         }
 
 

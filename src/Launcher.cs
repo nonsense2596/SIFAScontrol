@@ -18,15 +18,9 @@ namespace SIFAScontrol.src
 
         Launcher()
         {
-            //mf = new MainForm();
-            //Application.Run(mf);
 
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-
-            //Application.Idle += delegate { Thread t = new Thread(Program.InitInterceptKeys); t.Start(); };
-
-            //Application.Run(new MultiFormContext(new MainForm(), new AreaSelectForm()));
 
 
             mf = new MainForm();

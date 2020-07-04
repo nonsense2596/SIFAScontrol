@@ -39,38 +39,10 @@ namespace SIFAScontrol
             }
             Console.ReadLine();
 
+            //string screenWidth = Screen.PrimaryScreen.Bounds.Width.ToString();
 
+            //string screenHeight = Screen.PrimaryScreen.Bounds.Height.ToString();
 
-
-
-
-
-            /*Launcher launcher = Launcher.Instance;  
-
-            Console.WriteLine("lola");
-            var stdIn = Console.OpenStandardInput();
-            byte[] bytes = new byte[100];
-            int outputLength;
-
-
-            string screenWidth = Screen.PrimaryScreen.Bounds.Width.ToString();
-
-            string screenHeight = Screen.PrimaryScreen.Bounds.Height.ToString();
-
-            Console.WriteLine("{0}x{1}",screenWidth, screenHeight);*/
-
-
-
-
-
-            /*while (true)
-            {
-                GamePadState state = GamePad.GetState(PlayerIndex.One);
-                Console.WriteLine("IsConnected {0} Packet #{1}", state.IsConnected, state.PacketNumber);
-                Console.WriteLine("\tTriggers {0} {1}", state.Triggers.Left, state.Triggers.Right);
-                Console.WriteLine("move stick {0} ", state.ThumbSticks.Left.X);
-                Thread.Sleep(100);
-            }*/
 
         }
 

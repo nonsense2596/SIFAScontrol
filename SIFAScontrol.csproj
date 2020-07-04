@@ -75,7 +75,6 @@
       <DependentUpon>AreaSelectFormTooltip.cs</DependentUpon>
     </Compile>
     <Compile Include="src\GamePlayer.cs" />
-    <Compile Include="src\InterceptKeys.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="src\Launcher.cs" />
@@ -91,7 +90,6 @@
     <Compile Include="src\MouseClicker.Designer.cs">
       <DependentUpon>MouseClicker.cs</DependentUpon>
     </Compile>
-    <Compile Include="src\MultiFormContext.cs" />
     <Compile Include="src\ReporterState.cs" />
     <Compile Include="XInput.cs" />
     <EmbeddedResource Include="Properties\Resources.resx">
