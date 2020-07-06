@@ -1,4 +1,5 @@
-﻿using SIFAScontrol.data;
+﻿using SIFAScontrol.Abstraction;
+using SIFAScontrol.data;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -29,30 +30,35 @@ namespace SIFAScontrol.src
         public void DoWork()
         {
 
+            var pads = Gamepad.GetConnectedDevices();
+            if (pads.Count > 0)
+            {
+                Gamepad pad = pads.First();
+                pad.StateChanged += Pad_StateChanged;
+                pad.KeyUp += Pad_KeyUp;
+                pad.KeyDown += Pad_KeyDown;
+            }
 
-            //while (true)
-            //{
-            //    if (reporterState.Poll())
-            //    {
-            //        if(reporterState.LastActiveState.Buttons.A == XInputDotNetPure.ButtonState.Pressed)
-            //        {
-            //            //Console.WriteLine("faszomA");
-            //            if (areleased)
-            //            {
-            //                Console.WriteLine("AaAaAaA");
-            //                areleased = false;
-            //            }
+        }
+        private  void Pad_StateChanged(object sender, EventArgs args)
+        {
+        }
+        private  void Pad_KeyDown(object sender, SIFAScontrol.Abstraction.KeyEventArgs args)
+        {
+            
 
-            //        }
-            //        if(reporterState.LastActiveState.Buttons.A == XInputDotNetPure.ButtonState.Released)
-            //        {
-            //            areleased = true;
-            //        }
-            //    }
-            //}
+            if (args.Key.Equals(actions[0].KeyCode))
+            {
+                (sender as Gamepad).Vibration = new VibrationMotorSpeed(0.5, 0.5);
+            }
+
+        }
+        private void Pad_KeyUp(object sender, SIFAScontrol.Abstraction.KeyEventArgs args)
+        {
+            (sender as Gamepad).Vibration = new VibrationMotorSpeed(0.0, 0.0);
         }
 
 
 
-    }
+        }
 }

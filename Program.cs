@@ -22,10 +22,12 @@ namespace SIFAScontrol
         [STAThread]
         static void Main()
         {
-            //Application.EnableVisualStyles();
-            //Application.SetCompatibleTextRenderingDefault(false);
+            
+            Application.EnableVisualStyles();
+            Application.SetCompatibleTextRenderingDefault(false);
+            Launcher launcher = Launcher.Instance;
 
-            var pads = Gamepad.GetConnectedDevices();
+            /*var pads = Gamepad.GetConnectedDevices();
             if(pads.Count > 0)
             {
                 Gamepad pad = pads.First();
@@ -36,7 +38,8 @@ namespace SIFAScontrol
             else
             {
                 Console.WriteLine("No gamepads connected");
-            }
+            }*/
+
             Console.ReadLine();
 
             //string screenWidth = Screen.PrimaryScreen.Bounds.Width.ToString();
@@ -46,7 +49,7 @@ namespace SIFAScontrol
 
         }
 
-        static MouseClicker mouseclicker = new MouseClicker();
+        //static MouseClicker mouseclicker = new MouseClicker();
 
 
         private static void Pad_StateChanged(object sender, EventArgs args)
@@ -57,10 +60,11 @@ namespace SIFAScontrol
             if (result != "0;0")
             {
                 //Cursor c = new Cursor(Cursor.Current.Handle);
-                mouseclicker.DoMouseClick();
-                //Cursor.Position = new Point(Cursor.Position.X - 3, Cursor.Position.Y);
+                //mouseclicker.DoMouseDown();
+                //Cursor.Position = new Point(Cursor.Position.X - 20, Cursor.Position.Y);
+                //mouseclicker.DoMouseUp();
             }
-                Console.WriteLine(result);
+                //Console.WriteLine(result);
                 
             //Gamepad gp = (Gamepad)sender;
             //Console.WriteLine(args.ToString());
@@ -79,8 +83,11 @@ namespace SIFAScontrol
 
         private static void Pad_KeyDown(object sender, SIFAScontrol.Abstraction.KeyEventArgs args)
         {
-            //(sender as Gamepad).Vibration = new VibrationMotorSpeed(0.5, 0.5);
+            (sender as Gamepad).Vibration = new VibrationMotorSpeed(0.5, 0.5);
             
+
+
+
             //Console.WriteLine(args.Key);
             
             
@@ -104,7 +111,7 @@ namespace SIFAScontrol
         private static void Pad_KeyUp(object sender, SIFAScontrol.Abstraction.KeyEventArgs args)
         {
             (sender as Gamepad).Vibration = new VibrationMotorSpeed(0.0, 0.0);
-            Console.WriteLine(args.Key);
+            //Console.WriteLine(args.Key);
         }
 
     }

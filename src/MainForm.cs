@@ -77,8 +77,8 @@ namespace SIFAScontrol.src
 
 
 
-            /*gameplayer = new GamePlayer(actions);
-            WindowState = FormWindowState.Minimized;*/
+            gameplayer = new GamePlayer(actions);
+            //WindowState = FormWindowState.Minimized;
         }
 
 
