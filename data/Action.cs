@@ -21,6 +21,13 @@ namespace SIFAScontrol.data
         public string Name { get; set; }
         public string Tooltip { get; set; }
         public GestureSurface Area { get; set; }
+        public void DownAction()
+        {
 
+        }
+        public void UpAction()
+        {
+
+        }
     }
 }
