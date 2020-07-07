@@ -20,6 +20,7 @@ namespace SIFAScontrol.data
             Tooltip = tooltip;
             Area = area;
             ConcreteAction = concreteaction;
+            ConcreteAction.Area = Area;
         }
         public KeyCode KeyCode { get; set; }
         public string Name { get; set; }

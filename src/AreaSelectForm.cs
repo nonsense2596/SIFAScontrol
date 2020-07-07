@@ -112,26 +112,33 @@ namespace SIFAScontrol.src
 
         private void pictureBox1_MouseUp(object sender, MouseEventArgs e)
         {
-            
+            // TODO optimize this out
             drawing = false;
-            if (mousedowncounter > 5)
+            if (mousedowncounter <= 5)
             {
-                this.Close();
+                asft.text.Text = actions[mousedowncounter].Name;
+                actions[mousedowncounter - 1].Area.X_min = x_min;
+                actions[mousedowncounter - 1].Area.X_max = x_max;
+                actions[mousedowncounter - 1].Area.Y_min = y_min;
+                actions[mousedowncounter - 1].Area.Y_max = y_max;
+                Console.WriteLine(actions[mousedowncounter - 1].Name);
+                Console.WriteLine(actions[mousedowncounter - 1].Area.height);
+                Console.WriteLine(actions[mousedowncounter - 1].Area.width);
+
             }
             else
             {
-                asft.text.Text = actions[mousedowncounter].Name;
-                actions[mousedowncounter].Area.X_min = x_min;
-                actions[mousedowncounter].Area.X_max = x_max;
-                actions[mousedowncounter].Area.Y_min = y_min;
-                actions[mousedowncounter].Area.Y_max = y_max;
-                Console.WriteLine(actions[mousedowncounter].Area.height);
-                Console.WriteLine(actions[mousedowncounter].Area.width);
-                Console.WriteLine(height);
-                Console.WriteLine(width);
+                actions[mousedowncounter - 1].Area.X_min = x_min;
+                actions[mousedowncounter - 1].Area.X_max = x_max;
+                actions[mousedowncounter - 1].Area.Y_min = y_min;
+                actions[mousedowncounter - 1].Area.Y_max = y_max;
+                Console.WriteLine(actions[mousedowncounter - 1].Name);
+                Console.WriteLine(actions[mousedowncounter - 1].Area.height);
+                Console.WriteLine(actions[mousedowncounter - 1].Area.width);
+                this.Close();
             }
-
-
+            //mousedowncounter++;
+            
         }
 
 

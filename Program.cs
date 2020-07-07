@@ -11,6 +11,7 @@ using SIFAScontrol.src;
 using SIFAScontrol.data;
 using SIFAScontrol.Abstraction;
 
+
 namespace SIFAScontrol
 {
     static class Program
@@ -26,6 +27,7 @@ namespace SIFAScontrol
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Launcher launcher = Launcher.Instance;
+
 
             /*var pads = Gamepad.GetConnectedDevices();
             if(pads.Count > 0)

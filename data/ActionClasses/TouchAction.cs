@@ -11,6 +11,7 @@ namespace SIFAScontrol.data.ActionClasses
         public override void Action()
         {
             Console.WriteLine("touch action");
+            Console.WriteLine(Area.height + " " + Area.width);
         }
     }
 }

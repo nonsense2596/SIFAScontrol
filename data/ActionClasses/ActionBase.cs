@@ -9,5 +9,7 @@ namespace SIFAScontrol.data.ActionClasses
     public abstract class ActionBase
     {
         public abstract void Action();
+
+        public GestureSurface Area { get; set; }
     }
 }
