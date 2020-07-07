@@ -1,4 +1,8 @@
-﻿namespace SIFAScontrol.data
+﻿using SIFAScontrol.data.ActionClasses;
+using SIFAScontrol.Abstraction;
+using static SIFAScontrol.Abstraction.KeyEventArgs;
+
+namespace SIFAScontrol.data
 {
     public class Actions
     {
@@ -17,14 +21,14 @@
 
         public Actions() {
             // TODO if implementing custom bindings for all, additional loop elements in the areaselectform class
-            PreviousFormation = new Action(Abstraction.KeyEventArgs.KeyCode.L,"Previous Formation", "Select the Previous Formation Area", new GestureSurface());
-            NextFormation =     new Action(Abstraction.KeyEventArgs.KeyCode.R, "Next Formation", "Select the Next Formation Area", new GestureSurface());
-            Pause =             new Action(Abstraction.KeyEventArgs.KeyCode.Start, "Pause", "Select the Pause Area", new GestureSurface());
-            LeftTouch =         new Action(Abstraction.KeyEventArgs.KeyCode.DPadLeft, "Left Touch", "Select the Left Touch Area", new GestureSurface());
-            RightTouch =        new Action(Abstraction.KeyEventArgs.KeyCode.DPadRight, "Right Touch", "Select the Right Touch Area", new GestureSurface());
-            GroupSkill =        new Action(Abstraction.KeyEventArgs.KeyCode.A, "Group Skill", "Select the Group Skill Area", new GestureSurface());
-            LeftHold =          new Action(Abstraction.KeyEventArgs.KeyCode.LTrigger, "Left Hold", "Left Hold Area PH", new GestureSurface());
-            RightHold =         new Action(Abstraction.KeyEventArgs.KeyCode.LTrigger, "Left Hold", "Left Hold Area PH", new GestureSurface());
+            PreviousFormation = new Action(KeyCode.L,"Previous Formation", "Select the Previous Formation Area", new GestureSurface(), new TouchAction());
+            NextFormation =     new Action(KeyCode.R, "Next Formation", "Select the Next Formation Area", new GestureSurface(), new TouchAction());
+            Pause =             new Action(KeyCode.Start, "Pause", "Select the Pause Area", new GestureSurface(), new TouchAction());
+            LeftTouch =         new Action(KeyCode.DPadLeft, "Left Touch", "Select the Left Touch Area", new GestureSurface(), new MoveAction());
+            RightTouch =        new Action(KeyCode.DPadRight, "Right Touch", "Select the Right Touch Area", new GestureSurface(), new MoveAction());
+            GroupSkill =        new Action(KeyCode.A, "Group Skill", "Select the Group Skill Area", new GestureSurface(), new TouchAction());
+            LeftHold =          new Action(KeyCode.LTrigger, "Left Hold", "Left Hold Area PH", new GestureSurface(), new HoldAction());
+            RightHold =         new Action(KeyCode.LTrigger, "Left Hold", "Left Hold Area PH", new GestureSurface(), new HoldAction());
             ial[0] = PreviousFormation;
             ial[1] = NextFormation;
             ial[2] = Pause;

@@ -371,7 +371,7 @@ namespace SIFAScontrol
             /// <summary>
             /// Flags that indicate the keyboard state at the time of the input event.
             /// </summary>
-            public KeyStrokeFlags flags;
+            public KeyStrokeFlags ;
 
             /// <summary>
             /// Index of the signed-in gamer associated with the device. Can be a value in the range 0–3.

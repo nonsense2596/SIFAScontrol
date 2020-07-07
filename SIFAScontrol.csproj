@@ -60,6 +60,10 @@
     <Compile Include="Abstraction\KeyEventArgs.cs" />
     <Compile Include="Abstraction\VibrationMotorSpeed.cs" />
     <Compile Include="data\Action.cs" />
+    <Compile Include="data\ActionClasses\ActionBase.cs" />
+    <Compile Include="data\ActionClasses\HoldAction.cs" />
+    <Compile Include="data\ActionClasses\MoveAction.cs" />
+    <Compile Include="data\ActionClasses\TouchAction.cs" />
     <Compile Include="data\Actions.cs" />
     <Compile Include="data\GestureSurface.cs" />
     <Compile Include="src\AreaSelectForm.cs">
