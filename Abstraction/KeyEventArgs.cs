@@ -64,19 +64,19 @@ namespace SIFAScontrol.Abstraction
             LThumbDown = 0x5821,
             LThumbRight = 0x5822,
             LThumbLeft = 0x5823,
-            LThumbUpLeft = 0x5824,
-            LThumbUpRight = 0x5825,
-            LThumbDownRight = 0x5826,
-            LThumbDownLeft = 0x5827,
+            //LThumbUpLeft = 0x5824,
+            //LThumbUpRight = 0x5825,
+            //LThumbDownRight = 0x5826,
+            //LThumbDownLeft = 0x5827,
 
             RThumbUp = 0x5830,
             RThumbDown = 0x5831,
             RThumbRight = 0x5832,
             RThumbLeft = 0x5833,
-            RThumbUpLeft = 0x5834,
-            RThumbUpRight = 0x5835,
-            RThumbDownRight = 0x5836,
-            RThumbDownLeft = 0x5837
+            //RThumbUpLeft = 0x5834,
+            //RThumbUpRight = 0x5835,
+            //RThumbDownRight = 0x5836,
+            //RThumbDownLeft = 0x5837
         }
 
         #endregion

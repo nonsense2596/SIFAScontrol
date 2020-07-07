@@ -8,5 +8,6 @@ namespace SIFAScontrol.data.ActionClasses
 {
     public abstract class ActionBase
     {
+        public abstract void Action();
     }
 }

@@ -8,5 +8,9 @@ namespace SIFAScontrol.data.ActionClasses
 {
     public class TouchAction: ActionBase
     {
+        public override void Action()
+        {
+            Console.WriteLine("touch action");
+        }
     }
 }

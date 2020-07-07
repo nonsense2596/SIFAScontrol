@@ -10,8 +10,7 @@ namespace SIFAScontrol.data
 {
     public class Action
     {
-        // TODO abstract out all actions to separate classes
-        // based on Action they all shall
+        // TODO based on Action they all shall
         // implementing DownAction and UpAction, to
 
         public Action(KeyCode kc, string name, string tooltip, GestureSurface area, ActionBase concreteaction)

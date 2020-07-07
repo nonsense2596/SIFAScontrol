@@ -8,5 +8,9 @@ namespace SIFAScontrol.data.ActionClasses
 {
     public class MoveAction: ActionBase
     {
+        public override void Action()
+        {
+            Console.WriteLine("move action");
+        }
     }
 }

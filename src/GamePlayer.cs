@@ -68,7 +68,8 @@ namespace SIFAScontrol.src
             {
                 if (actions[i].KeyCode.Equals(args.Key)){
                     // do stuff
-                    Console.WriteLine(actions[i].Name);
+                    //Console.WriteLine(actions[i].Name);
+                    actions[i].ConcreteAction.Action();
                 }
             }
 

@@ -8,5 +8,9 @@ namespace SIFAScontrol.data.ActionClasses
 {
     public class HoldAction: ActionBase
     {
+        public override void Action()
+        {
+            Console.WriteLine("hold action");
+        }
     }
 }
