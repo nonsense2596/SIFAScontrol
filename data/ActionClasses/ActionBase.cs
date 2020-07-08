@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SIFAScontrol.src;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,6 +13,8 @@ namespace SIFAScontrol.data.ActionClasses
         public abstract void StateChangedAction();
         public abstract void KeyDownAction();
         public abstract void KeyUpAction();
+
         public GestureSurface Area { get; set; }
+        protected MouseClicker mouseclicker = new MouseClicker();
     }
 }

@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace SIFAScontrol.data.ActionClasses
 {
@@ -16,17 +18,23 @@ namespace SIFAScontrol.data.ActionClasses
 
         public override void KeyDownAction()
         {
-            throw new NotImplementedException();
+            Cursor c = new Cursor(Cursor.Current.Handle);
+            Random r = new Random();
+            Point p = new Point(r.Next(Area.X_min,Area.X_max),r.Next(Area.Y_min,Area.Y_max));
+            Cursor.Position = p;
+            mouseclicker.DoMouseDown();
         }
 
         public override void KeyUpAction()
         {
-            throw new NotImplementedException();
+            mouseclicker.DoMouseUp();
         }
 
         public override void StateChangedAction()
         {
-            throw new NotImplementedException();
+            //throw new NotImplementedException();
+
+            // do nothing
         }
     }
 }

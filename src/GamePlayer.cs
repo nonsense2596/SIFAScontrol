@@ -68,8 +68,8 @@ namespace SIFAScontrol.src
             {
                 if (actions[i].KeyCode.Equals(args.Key)){
                     // do stuff
-                    //Console.WriteLine(actions[i].Name);
-                    actions[i].ConcreteAction.Action();
+                    //actions[i].ConcreteAction.Action();
+                    actions[i].ConcreteAction.KeyDownAction();
                 }
             }
 
@@ -79,7 +79,15 @@ namespace SIFAScontrol.src
         {
             (sender as Gamepad).Vibration = new VibrationMotorSpeed(0.0, 0.0);
 
-
+            for (int i = 0; i < actions.ialSize(); i++)
+            {
+                if (actions[i].KeyCode.Equals(args.Key))
+                {
+                    // do stuff
+                    //actions[i].ConcreteAction.Action();
+                    actions[i].ConcreteAction.KeyUpAction();
+                }
+            }
         }
 
 
