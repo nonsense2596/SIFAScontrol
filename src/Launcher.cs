@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SIFAScontrol.Touch;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,8 +24,11 @@ namespace SIFAScontrol.src
             Application.SetCompatibleTextRenderingDefault(false);
 
 
+
             mf = new MainForm();
             Application.Run(mf);
+
+
 
         }
 

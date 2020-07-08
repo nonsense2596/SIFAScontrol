@@ -1,4 +1,5 @@
 ﻿using SIFAScontrol.data;
+using SIFAScontrol.Touch;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -73,9 +74,6 @@ namespace SIFAScontrol.src
 
         private void button3_Click(object sender, EventArgs e)
         {
-
-
-
 
             gameplayer = new GamePlayer(actions);
             //WindowState = FormWindowState.Minimized;

@@ -1,8 +1,10 @@
-﻿using System;
+﻿using SIFAScontrol.Touch;
+using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -15,18 +17,27 @@ namespace SIFAScontrol.data.ActionClasses
             Console.WriteLine("hold action");
         }
 
+
+
         public override void KeyDownAction()
         {
-            Cursor c = new Cursor(Cursor.Current.Handle);
+            // TODO cut this code into the required pieces
+            
+
+
+
+
+            /*Cursor c = new Cursor(Cursor.Current.Handle);
             Random r = new Random();
             Point p = new Point(r.Next(Area.X_min, Area.X_max), r.Next(Area.Y_min, Area.Y_max));
             Cursor.Position = p;
-            mouseclicker.DoMouseDown();
+            mouseclicker.DoMouseDown();*/
         }
 
         public override void KeyUpAction()
         {
-            mouseclicker.DoMouseUp();
+
+            /*mouseclicker.DoMouseUp();*/
 
         }
 

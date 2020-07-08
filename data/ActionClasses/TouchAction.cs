@@ -18,12 +18,14 @@ namespace SIFAScontrol.data.ActionClasses
 
         public override void KeyDownAction()
         {
-            Cursor c = new Cursor(Cursor.Current.Handle);
+            // TODO temprarily commented out
+
+            /*Cursor c = new Cursor(Cursor.Current.Handle);
             Random r = new Random();
             Point p = new Point(r.Next(Area.X_min,Area.X_max),r.Next(Area.Y_min,Area.Y_max));
             Cursor.Position = p;
             mouseclicker.DoMouseDown();
-            mouseclicker.DoMouseUp();
+            mouseclicker.DoMouseUp();*/
         }
 
         public override void KeyUpAction()

@@ -1,11 +1,13 @@
 ﻿using SIFAScontrol.Abstraction;
 using SIFAScontrol.data;
+using SIFAScontrol.Touch;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
+using System.Windows.Threading;
 using XInputDotNetPure;
 
 namespace SIFAScontrol.src
@@ -36,13 +38,26 @@ namespace SIFAScontrol.src
                 gamepad.StateChanged += Pad_StateChanged;
                 gamepad.KeyUp += Pad_KeyUp;
                 gamepad.KeyDown += Pad_KeyDown;
+                DispatcherTimer m_timer = new DispatcherTimer();
+                m_timer.Tick += timer_Tick;
+                m_timer.Interval = TimeSpan.FromSeconds(1.0 / 60.0);
+                m_timer.Start();
             }
 
             //Thread t = new Thread(DoWork);
             //t.Start();
         }
 
-        bool areleased = true;
+        private void timer_Tick(object sender, EventArgs e)
+        {
+            if (gamepad.A)
+            {
+                // TODO reinvent relevant code parts from XboxInputMapper
+                Console.WriteLine("lol");
+            }
+        }
+
+
 
         public void DoWork()
         {
