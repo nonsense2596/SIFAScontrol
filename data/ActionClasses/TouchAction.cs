@@ -13,5 +13,20 @@ namespace SIFAScontrol.data.ActionClasses
             Console.WriteLine("touch action");
             Console.WriteLine(Area.height + " " + Area.width);
         }
+
+        public override void KeyDownAction()
+        {
+            throw new NotImplementedException();
+        }
+
+        public override void KeyUpAction()
+        {
+            throw new NotImplementedException();
+        }
+
+        public override void StateChangedAction()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

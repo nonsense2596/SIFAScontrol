@@ -12,5 +12,20 @@ namespace SIFAScontrol.data.ActionClasses
         {
             Console.WriteLine("hold action");
         }
+
+        public override void KeyDownAction()
+        {
+            throw new NotImplementedException();
+        }
+
+        public override void KeyUpAction()
+        {
+            throw new NotImplementedException();
+        }
+
+        public override void StateChangedAction()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

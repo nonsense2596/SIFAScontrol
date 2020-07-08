@@ -21,20 +21,21 @@ namespace SIFAScontrol.data
 
         public Actions() {
             // TODO thumb movements, might need many additional records here, as all directions are separate
-            PreviousFormation = new Action(KeyCode.L,"Previous Formation", "Select the Previous Formation Area", new GestureSurface(), new TouchAction());
-            NextFormation =     new Action(KeyCode.R, "Next Formation", "Select the Next Formation Area", new GestureSurface(), new TouchAction());
-            Pause =             new Action(KeyCode.Start, "Pause", "Select the Pause Area", new GestureSurface(), new TouchAction());
-            LeftTouchUp =         new Action(KeyCode.LThumbUp, "Left Touch", "Select the Left Touch Area", new GestureSurface(), new MoveAction());
-            LeftTouchRight =         new Action(KeyCode.LThumbRight, "Left Touch", "Select the Left Touch Area", new GestureSurface(), new MoveAction());
-            LeftTouchDown =         new Action(KeyCode.LThumbDown, "Left Touch", "Select the Left Touch Area", new GestureSurface(), new MoveAction());
-            LeftTouchLeft =         new Action(KeyCode.LThumbLeft, "Left Touch", "Select the Left Touch Area", new GestureSurface(), new MoveAction());
-            RightTouchUp =        new Action(KeyCode.RThumbUp, "Right Touch", "Select the Right Touch Area", new GestureSurface(), new MoveAction());
-            RightTouchRight =        new Action(KeyCode.RThumbRight, "Right Touch", "Select the Right Touch Area", new GestureSurface(), new MoveAction());
-            RightTouchDown =        new Action(KeyCode.RThumbDown, "Right Touch", "Select the Right Touch Area", new GestureSurface(), new MoveAction());
-            RightTouchLeft =        new Action(KeyCode.RThumbLeft, "Right Touch", "Select the Right Touch Area", new GestureSurface(), new MoveAction());
-            GroupSkill =        new Action(KeyCode.A, "Group Skill", "Select the Group Skill Area", new GestureSurface(), new TouchAction());
-            LeftHold =          new Action(KeyCode.LTrigger, "Left Hold", "Left Hold Area PH", new GestureSurface(), new HoldAction());
-            RightHold =         new Action(KeyCode.LTrigger, "Left Hold", "Left Hold Area PH", new GestureSurface(), new HoldAction());
+            // TODO shit starting to get ugly, make it cleaner
+            PreviousFormation = new Action(KeyCode.L,           "Previous Formation", "Select the Previous Formation Area", new GestureSurface(),   new TouchAction());
+            NextFormation =     new Action(KeyCode.R,           "Next Formation", "Select the Next Formation Area",         new GestureSurface(),   new TouchAction());
+            Pause =             new Action(KeyCode.Start,       "Pause", "Select the Pause Area",                           new GestureSurface(),   new TouchAction());
+            LeftTouchUp =       new Action(KeyCode.LThumbUp,    "Left Touch", "Select the Left Touch Area",                 new GestureSurface(),   new MoveAction());
+            LeftTouchRight =    new Action(KeyCode.LThumbRight, "Left Touch", "Select the Left Touch Area",                 LeftTouchUp.Area,       new MoveAction());
+            LeftTouchDown =     new Action(KeyCode.LThumbDown,  "Left Touch", "Select the Left Touch Area",                 LeftTouchUp.Area,       new MoveAction());
+            LeftTouchLeft =     new Action(KeyCode.LThumbLeft,  "Left Touch", "Select the Left Touch Area",                 LeftTouchUp.Area,       new MoveAction());
+            RightTouchUp =      new Action(KeyCode.RThumbUp,    "Right Touch", "Select the Right Touch Area",               new GestureSurface(),   new MoveAction());
+            RightTouchRight =   new Action(KeyCode.RThumbRight, "Right Touch", "Select the Right Touch Area",               RightTouchUp.Area,      new MoveAction());
+            RightTouchDown =    new Action(KeyCode.RThumbDown,  "Right Touch", "Select the Right Touch Area",               RightTouchUp.Area,      new MoveAction());
+            RightTouchLeft =    new Action(KeyCode.RThumbLeft,  "Right Touch", "Select the Right Touch Area",               RightTouchUp.Area,      new MoveAction());
+            GroupSkill =        new Action(KeyCode.A,           "Group Skill", "Select the Group Skill Area",               new GestureSurface(),   new TouchAction());
+            LeftHold =          new Action(KeyCode.LTrigger,    "Left Hold", "Left Hold Area PH",                           new GestureSurface(),   new HoldAction());
+            RightHold =         new Action(KeyCode.RTrigger,    "Left Hold", "Left Hold Area PH",                           new GestureSurface(),   new HoldAction());
             ial[0] = PreviousFormation;
             ial[1] = NextFormation;
             ial[2] = Pause;

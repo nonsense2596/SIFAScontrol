@@ -11,6 +11,22 @@ namespace SIFAScontrol.data.ActionClasses
         public override void Action()
         {
             Console.WriteLine("move action");
+            Console.WriteLine(Area.height + " " + Area.width);
+        }
+
+        public override void KeyDownAction()
+        {
+            throw new NotImplementedException();
+        }
+
+        public override void KeyUpAction()
+        {
+            throw new NotImplementedException();
+        }
+
+        public override void StateChangedAction()
+        {
+            throw new NotImplementedException();
         }
     }
 }

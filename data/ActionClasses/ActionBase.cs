@@ -9,7 +9,9 @@ namespace SIFAScontrol.data.ActionClasses
     public abstract class ActionBase
     {
         public abstract void Action();
-
+        public abstract void StateChangedAction();
+        public abstract void KeyDownAction();
+        public abstract void KeyUpAction();
         public GestureSurface Area { get; set; }
     }
 }
