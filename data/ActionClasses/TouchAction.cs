@@ -23,17 +23,16 @@ namespace SIFAScontrol.data.ActionClasses
             Point p = new Point(r.Next(Area.X_min,Area.X_max),r.Next(Area.Y_min,Area.Y_max));
             Cursor.Position = p;
             mouseclicker.DoMouseDown();
+            mouseclicker.DoMouseUp();
         }
 
         public override void KeyUpAction()
         {
-            mouseclicker.DoMouseUp();
+            // void
         }
 
         public override void StateChangedAction()
         {
-            //throw new NotImplementedException();
-
             // do nothing
         }
     }

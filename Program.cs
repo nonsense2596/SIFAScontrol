@@ -10,7 +10,10 @@ using System.Drawing;
 using SIFAScontrol.src;
 using SIFAScontrol.data;
 using SIFAScontrol.Abstraction;
-
+using System.Windows.Input;
+using SIFAScontrol.Touch;
+//using TCD.System.TouchInjection;
+//using static TCD.System.TouchInjection.TouchInjector;
 
 namespace SIFAScontrol
 {
@@ -26,30 +29,54 @@ namespace SIFAScontrol
             
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Launcher launcher = Launcher.Instance;
+            //Launcher launcher = Launcher.Instance;
+
+            Thread.Sleep(3000);
+
+            const int MaxTouchCount = 2;
+            PointerTouchInfo[] m_contact = new PointerTouchInfo[MaxTouchCount];
+            m_contact[0].PointerInfo.PointerType = PointerInputType.Touch;
+            m_contact[0].PointerInfo.PointerId = (uint)0;
+            m_contact[1].PointerInfo.PointerType = PointerInputType.Touch;
+            m_contact[1].PointerInfo.PointerId = (uint)1;
+            TouchInjection.InitializeTouchInjection(MaxTouchCount, TouchFeedback.Default);
+
+            m_contact[0].PointerInfo.PointerFlags = PointerFlags.InRange | PointerFlags.InContact | PointerFlags.Down;
+            m_contact[0].PointerInfo.PixelLocation.X = (int)300;
+            m_contact[0].PointerInfo.PixelLocation.Y = (int)300;
+            m_contact[1].PointerInfo.PointerFlags = PointerFlags.InRange | PointerFlags.InContact | PointerFlags.Down;
+            m_contact[1].PointerInfo.PixelLocation.X = (int)400;
+            m_contact[1].PointerInfo.PixelLocation.Y = (int)400;
+            TouchInjection.InjectTouchInput(2, m_contact);
+            Thread.Sleep(2000);
+            m_contact[0].PointerInfo.PointerFlags = PointerFlags.Up;
+            m_contact[1].PointerInfo.PointerFlags = PointerFlags.Up;
+            //TouchInjection.InjectTouchInput(2, m_contact);
 
 
-            /*var pads = Gamepad.GetConnectedDevices();
-            if(pads.Count > 0)
-            {
-                Gamepad pad = pads.First();
-                pad.StateChanged += Pad_StateChanged;
-                pad.KeyUp += Pad_KeyUp;
-                pad.KeyDown += Pad_KeyDown;
-            }
-            else
-            {
-                Console.WriteLine("No gamepads connected");
-            }*/
 
-            Console.ReadLine();
+
+
+
+
+
+
+
+
+
+
+
 
             //string screenWidth = Screen.PrimaryScreen.Bounds.Width.ToString();
-
             //string screenHeight = Screen.PrimaryScreen.Bounds.Height.ToString();
+        }
 
+        private static void loller()
+        {
 
         }
+
+
 
         //static MouseClicker mouseclicker = new MouseClicker();
 

@@ -34,8 +34,8 @@ namespace SIFAScontrol.data
             RightTouchDown =    new Action(KeyCode.RThumbDown,  "Right Touch", "Select the Right Touch Area",               RightTouchUp.Area,      new MoveAction());
             RightTouchLeft =    new Action(KeyCode.RThumbLeft,  "Right Touch", "Select the Right Touch Area",               RightTouchUp.Area,      new MoveAction());
             GroupSkill =        new Action(KeyCode.A,           "Group Skill", "Select the Group Skill Area",               new GestureSurface(),   new TouchAction());
-            LeftHold =          new Action(KeyCode.LTrigger,    "Left Hold", "Left Hold Area PH",                           new GestureSurface(),   new HoldAction());
-            RightHold =         new Action(KeyCode.RTrigger,    "Left Hold", "Left Hold Area PH",                           new GestureSurface(),   new HoldAction());
+            LeftHold =          new Action(KeyCode.LTrigger,    "Left Hold", "Left Hold Area PH",                           LeftTouchUp.Area,       new HoldAction());  // new GestureSurface();
+            RightHold =         new Action(KeyCode.RTrigger,    "Left Hold", "Left Hold Area PH",                           RightTouchUp.Area,      new HoldAction());  // new GestureSurface();
             ial[0] = PreviousFormation;
             ial[1] = NextFormation;
             ial[2] = Pause;
