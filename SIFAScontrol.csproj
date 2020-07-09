@@ -70,6 +70,7 @@
     <Compile Include="data\ActionClasses\MoveAction.cs" />
     <Compile Include="data\ActionClasses\TouchAction.cs" />
     <Compile Include="data\Actions.cs" />
+    <Compile Include="data\Constants.cs" />
     <Compile Include="data\GestureSurface.cs" />
     <Compile Include="src\AreaSelectForm.cs">
       <SubType>Form</SubType>

@@ -1,6 +1,8 @@
 ﻿using SIFAScontrol.data.ActionClasses;
 using SIFAScontrol.Abstraction;
 using static SIFAScontrol.Abstraction.KeyEventArgs;
+using word = System.UInt16;
+using static SIFAScontrol.XInput;
 
 namespace SIFAScontrol.data
 {

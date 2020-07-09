@@ -50,11 +50,9 @@ namespace SIFAScontrol.src
 
         private void timer_Tick(object sender, EventArgs e)
         {
-            if (gamepad.A)
-            {
-                // TODO reinvent relevant code parts from XboxInputMapper
-                Console.WriteLine("lol");
-            }
+            // TODO reinvent relevant code parts from XboxInputMapper
+            
+
         }
 
 
@@ -77,7 +75,7 @@ namespace SIFAScontrol.src
         }
         private  void Pad_KeyDown(object sender, SIFAScontrol.Abstraction.KeyEventArgs args)
         {
-            (sender as Gamepad).Vibration = new VibrationMotorSpeed(0.5, 0.5);
+            //(sender as Gamepad).Vibration = new VibrationMotorSpeed(0.5, 0.5);
 
             for(int i = 0; i < actions.ialSize(); i++)
             {
@@ -92,7 +90,7 @@ namespace SIFAScontrol.src
         }
         private void Pad_KeyUp(object sender, SIFAScontrol.Abstraction.KeyEventArgs args)
         {
-            (sender as Gamepad).Vibration = new VibrationMotorSpeed(0.0, 0.0);
+            //(sender as Gamepad).Vibration = new VibrationMotorSpeed(0.0, 0.0);
 
             for (int i = 0; i < actions.ialSize(); i++)
             {

@@ -10,35 +10,62 @@ using System.Windows.Forms;
 
 namespace SIFAScontrol.data.ActionClasses
 {
-    public class HoldAction: ActionBase
+    public class HoldAction : ActionBase
     {
         public override void Action()
         {
             Console.WriteLine("hold action");
         }
-
-
-
+        const int MaxTouchCount = 40;
+        PointerTouchInfo[] m_contact = new PointerTouchInfo[MaxTouchCount];
+        bool flag = true;
         public override void KeyDownAction()
         {
-            // TODO cut this code into the required pieces
-            
-
-
-
-
-            /*Cursor c = new Cursor(Cursor.Current.Handle);
+            //Thread t = new Thread(lol);
+            //t.Start();
             Random r = new Random();
-            Point p = new Point(r.Next(Area.X_min, Area.X_max), r.Next(Area.Y_min, Area.Y_max));
-            Cursor.Position = p;
-            mouseclicker.DoMouseDown();*/
+            var x = r.Next(Area.X_min, Area.X_max);
+            var y = r.Next(Area.Y_min, Area.Y_max);
+            new Thread(() =>
+            {
+                flag = true;
+                m_contact[0].PointerInfo.PointerType = PointerInputType.Touch;
+                m_contact[0].PointerInfo.PointerId = (uint)0;
+                TouchInjection.InitializeTouchInjection(MaxTouchCount, TouchFeedback.Default);
+                m_contact[0].PointerInfo.PointerFlags = PointerFlags.InRange | PointerFlags.InContact | PointerFlags.Down;
+                m_contact[0].PointerInfo.PixelLocation.X = (int)x;  //960 teszt
+                m_contact[0].PointerInfo.PixelLocation.Y = (int)y;  //960 teszt
+                TouchInjection.InjectTouchInput(1, m_contact);
+                while (flag)
+                {
+                    m_contact[0].PointerInfo.PointerFlags = PointerFlags.InRange | PointerFlags.InContact | PointerFlags.Update;
+                    TouchInjection.InjectTouchInput(1, m_contact);
+                    Thread.Sleep(20);
+                }
+            }).Start();
         }
-
+        /*public void lol()
+        {
+            flag = true;
+            m_contact[0].PointerInfo.PointerType = PointerInputType.Touch;
+            m_contact[0].PointerInfo.PointerId = (uint)0;
+            TouchInjection.InitializeTouchInjection(MaxTouchCount, TouchFeedback.Default);
+            m_contact[0].PointerInfo.PointerFlags = PointerFlags.InRange | PointerFlags.InContact | PointerFlags.Down;
+            m_contact[0].PointerInfo.PixelLocation.X = (int)960;
+            m_contact[0].PointerInfo.PixelLocation.Y = (int)960;
+            TouchInjection.InjectTouchInput(1, m_contact);
+            while (flag)
+            {
+                m_contact[0].PointerInfo.PointerFlags = PointerFlags.InRange | PointerFlags.InContact | PointerFlags.Update;
+                TouchInjection.InjectTouchInput(1, m_contact);
+                Thread.Sleep(20);
+            }
+        }*/
         public override void KeyUpAction()
         {
-
-            /*mouseclicker.DoMouseUp();*/
-
+            flag = false;
+            m_contact[0].PointerInfo.PointerFlags = PointerFlags.Up;
+            TouchInjection.InjectTouchInput(1, m_contact);
         }
 
         public override void StateChangedAction()
