@@ -23,6 +23,7 @@ namespace SIFAScontrol.data.ActionClasses
         {
             //Thread t = new Thread(lol);
             //t.Start();
+            Console.WriteLine("holddown");
             Random r = new Random();
             var x = r.Next(Area.X_min, Area.X_max);
             var y = r.Next(Area.Y_min, Area.Y_max);
@@ -30,8 +31,9 @@ namespace SIFAScontrol.data.ActionClasses
             {
                 flag = true;
                 m_contact[0].PointerInfo.PointerType = PointerInputType.Touch;
+                
                 m_contact[0].PointerInfo.PointerId = (uint)0;
-                TouchInjection.InitializeTouchInjection(MaxTouchCount, TouchFeedback.Default);
+                TouchInjection.InitializeTouchInjection(MaxTouchCount, TouchFeedback.Indirect);
                 m_contact[0].PointerInfo.PointerFlags = PointerFlags.InRange | PointerFlags.InContact | PointerFlags.Down;
                 m_contact[0].PointerInfo.PixelLocation.X = (int)x;  //960 teszt
                 m_contact[0].PointerInfo.PixelLocation.Y = (int)y;  //960 teszt
@@ -44,23 +46,7 @@ namespace SIFAScontrol.data.ActionClasses
                 }
             }).Start();
         }
-        /*public void lol()
-        {
-            flag = true;
-            m_contact[0].PointerInfo.PointerType = PointerInputType.Touch;
-            m_contact[0].PointerInfo.PointerId = (uint)0;
-            TouchInjection.InitializeTouchInjection(MaxTouchCount, TouchFeedback.Default);
-            m_contact[0].PointerInfo.PointerFlags = PointerFlags.InRange | PointerFlags.InContact | PointerFlags.Down;
-            m_contact[0].PointerInfo.PixelLocation.X = (int)960;
-            m_contact[0].PointerInfo.PixelLocation.Y = (int)960;
-            TouchInjection.InjectTouchInput(1, m_contact);
-            while (flag)
-            {
-                m_contact[0].PointerInfo.PointerFlags = PointerFlags.InRange | PointerFlags.InContact | PointerFlags.Update;
-                TouchInjection.InjectTouchInput(1, m_contact);
-                Thread.Sleep(20);
-            }
-        }*/
+
         public override void KeyUpAction()
         {
             flag = false;
@@ -74,3 +60,22 @@ namespace SIFAScontrol.data.ActionClasses
         }
     }
 }
+
+
+/*public void lol()
+{
+    flag = true;
+    m_contact[0].PointerInfo.PointerType = PointerInputType.Touch;
+    m_contact[0].PointerInfo.PointerId = (uint)0;
+    TouchInjection.InitializeTouchInjection(MaxTouchCount, TouchFeedback.Default);
+    m_contact[0].PointerInfo.PointerFlags = PointerFlags.InRange | PointerFlags.InContact | PointerFlags.Down;
+    m_contact[0].PointerInfo.PixelLocation.X = (int)960;
+    m_contact[0].PointerInfo.PixelLocation.Y = (int)960;
+    TouchInjection.InjectTouchInput(1, m_contact);
+    while (flag)
+    {
+        m_contact[0].PointerInfo.PointerFlags = PointerFlags.InRange | PointerFlags.InContact | PointerFlags.Update;
+        TouchInjection.InjectTouchInput(1, m_contact);
+        Thread.Sleep(20);
+    }
+}*/

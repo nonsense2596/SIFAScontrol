@@ -16,17 +16,17 @@ namespace SIFAScontrol.data.ActionClasses
 
         public override void KeyDownAction()
         {
-            throw new NotImplementedException();
+            //throw new NotImplementedException();
         }
 
         public override void KeyUpAction()
         {
-            throw new NotImplementedException();
+            //throw new NotImplementedException();
         }
 
         public override void StateChangedAction()
         {
-            throw new NotImplementedException();
+            //throw new NotImplementedException();
         }
     }
 }
